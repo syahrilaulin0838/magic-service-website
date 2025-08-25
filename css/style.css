@@ -1,0 +1,510 @@
+/* Properti Kustom (Variabel) */
+:root {
+    --primary-color: #ff6600; /* Warna orange yang lebih menyala */
+    --secondary-color: #cc5200; /* Warna orange yang lebih gelap untuk hover */
+    --dark-color: #121212; /* Warna hitam pekat sebagai background utama */
+    --light-color: #222222; /* Warna abu-abu gelap untuk card/section */
+    --text-color: #f1f1f1; /* Warna teks putih agar mudah dibaca */
+    --font-family: 'Poppins', sans-serif;
+}
+
+/* Reset & Gaya Dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--text-color); /* Otomatis menggunakan teks warna putih */
+    background-color: var(--dark-color); /* Mengganti background utama menjadi hitam */
+    overflow-x: hidden; 
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding: 60px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: var(--primary-color);
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    border: none;
+    cursor: pointer;
+    
+}
+
+.cta-button:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Header & Navigasi */
+header {
+    background-color: #df7701; /* <-- Warna putih */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--dark-color);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.logo img {
+    height: 40px; /* Atur tinggi gambar logo. Coba ubah nilainya! */
+    width: auto;  /* Lebar akan menyesuaikan otomatis */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #000000; /* <-- Diubah menjadi hitam */
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Hero */
+#hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/download.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--text-color);
+    padding: 120px 0;
+    display: flex;
+    align-items: center;
+    min-height: 90vh;
+}
+
+.hero-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px; /* Jarak antara teks dan gambar */
+}
+
+.hero-text {
+    flex: 1; /* Teks mengambil ruang yang tersedia */
+    max-width: 550px; /* Batasi lebar teks */
+    /* Pastikan tidak ada background di sini */
+}
+
+#hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+#hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.hero-image {
+    flex: 1;
+    text-align: center;
+}
+
+.hero-image img {
+    
+    height: auto;
+    border-radius: 10px;
+    max-width: 350px;
+}
+
+/* Media Query untuk Mobile */
+@media (max-width: 768px) {
+    #hero {
+        padding: 80px 0;
+        min-height: auto;
+    }
+
+    .hero-content {
+        flex-direction: column; /* Ubah layout menjadi vertikal di mobile */
+        text-align: center;
+    }
+
+    .hero-text {
+        order: 2; /* Pindahkan teks ke bawah gambar di mobile */
+    }
+
+    .hero-image {
+        order: 1; /* Pindahkan gambar ke atas teks di mobile */
+        margin-bottom: 30px;
+    }
+
+    #hero h1 {
+        font-size: 2.2rem;
+    }
+}
+
+#hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+/* Layanan */
+.layanan-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.layanan-card {
+    background-color: var(--light-color);
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.layanan-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.layanan-card i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+/* GAYA BARU: Tabel Harga */
+.price-table {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.price-table th, .price-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.price-table thead {
+    background-color: var(--dark-color);
+    color: #fff;
+}
+
+.price-table tbody tr:nth-child(even) {
+    background-color: var(--light-color);
+}
+
+.price-table tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+
+/* Keunggulan */
+.keunggulan-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.keunggulan-item i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+/* Testimoni */
+#testimoni {
+    background-color: var(--light-color);
+}
+
+.testimoni-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.testimoni-card {
+    background-color: var(--dark-color); /* Perbaikan: Menggunakan warna gelap untuk card */
+    padding: 25px;
+    border-left: 5px solid var(--primary-color);
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* Tambahkan kode ini di bawahnya */
+.testimoni-card p {
+    color: var(--primary-color); /* <-- Mengubah warna teks testimoni menjadi oranye */
+}
+
+.testimoni-author {
+    margin-top: 15px;
+    font-weight: 600;
+    text-align: right;
+    color: var(--primary-color);
+}   
+
+/* FAQ */
+.faq-accordion {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    border-bottom: 1px solid #ddd;
+}
+
+.faq-question {
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    padding: 20px 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--primary-color); /* <-- Menambahkan warna oranye */
+}
+
+.faq-question i {
+    transition: transform 0.3s ease;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.faq-answer p {
+    padding-bottom: 20px;
+}
+
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
+}
+
+/* Kontak */
+.kontak-wrapper {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: var(--font-family);
+}
+
+.contact-info p {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.contact-info i {
+    margin-right: 15px;
+    color: var(--primary-color);
+    width: 20px;
+    text-align: center;
+}
+
+#form-message {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    display: none; /* Default disembunyikan, diatur oleh JS */
+}
+
+#form-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    display: block;
+}
+
+#form-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    display: block;
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-color);
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Tombol Back to Top */
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--primary-color);
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+#back-to-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#back-to-top:hover {
+    transform: scale(1.1);
+}
+
+/* Tombol WhatsApp */
+.whatsapp-button-container {
+    text-align: center;
+    margin: 40px auto 20px;
+}
+
+.whatsapp-button {
+    display: inline-block;
+    background-color: #25D366;
+    color: #fff;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.whatsapp-button i {
+    margin-right: 10px;
+}
+
+.whatsapp-button:hover {
+    background-color: #128C7E;
+    transform: scale(1.05);
+}
+
+
+/* Utilitas */
+.hidden {
+    display: none;
+}
+
+/* Desain Responsif */
+@media(max-width: 768px) {
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 75px; /* Sesuaikan dengan tinggi header Anda */
+        left: -100%;
+        background-color: #fff;
+        flex-direction: column;
+        width: 100%;
+        height: calc(100vh - 75px);
+        text-align: center;
+        transition: left 0.3s ease;
+        padding-top: 20px;
+    }
+    
+    .nav-links.active {
+        left: 0;
+    }
+
+    .nav-links li {
+        margin: 20px 0;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    #hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .kontak-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .price-table th, .price-table td {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+} 
